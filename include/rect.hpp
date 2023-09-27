@@ -4,8 +4,8 @@
 
 namespace smath {
 template <class T>
-struct Rect {
-    inline Rect(const Vector2<T>& origin, const Vector2<T>& size)
+struct Rectangle {
+    inline Rectangle(const Vector2<T>& origin, const Vector2<T>& size)
         : origin(origin), size(size) {}
 
     inline const T GetWidth() { return size.x; }
@@ -18,7 +18,7 @@ struct Rect {
                 position.y >= origin.y && position.y <= (origin.y + size.y));
     }
 
-    inline bool Contains(const Rect<T>& other) {
+    inline bool Contains(const Rectangle<T>& other) {
         return (other.origin.x >= origin.x && other.origin.y >= origin.y &&
                 (other.origin.x + other.size.x) <= (origin.x + size.x) &&
                 (other.origin.y + other.size.y) <= (origin.y + size.y));
@@ -27,6 +27,6 @@ struct Rect {
     Vector2<T> origin, size;
 };
 
-using RectI = Rect<int>;
-using RectF = Rect<float>;
+using RectI = Rectangle<int>;
+using RectF = Rectangle<float>;
 }  // namespace smath
