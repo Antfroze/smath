@@ -7,6 +7,7 @@ namespace smath {
 template <class T>
 struct Vector2 {
     inline Vector2() : x(0), y(0) {}
+    inline Vector2(const T& val) : x(val), y(val) {}
     inline Vector2(const T& x, const T& y) : x(x), y(y) {}
 
     inline static Vector2 Zero() { return Vector2(); }
