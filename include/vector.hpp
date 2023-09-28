@@ -56,34 +56,34 @@ struct Vector2 {
         return *this;
     }
     inline Vector2 operator-() const { return Vector2(-x, -y); }
-    inline Vector2 operator-(float const& num) const {
+    inline Vector2 operator-(const T& num) const {
         return Vector2(x - num, y - num);
     }
-    inline Vector2 operator+(float const& num) const {
+    inline Vector2 operator+(const T& num) const {
         return Vector2(x + num, y + num);
     }
-    inline Vector2 operator*(float const& num) const {
+    inline Vector2 operator*(const T& num) const {
         return Vector2(x * num, y * num);
     }
-    inline Vector2 operator/(float const& num) const {
+    inline Vector2 operator/(const T& num) const {
         return Vector2(x / num, y / num);
     }
-    inline Vector2& operator+=(const float& num) {
+    inline Vector2& operator+=(const T& num) {
         x += num;
         y += num;
         return *this;
     }
-    inline Vector2& operator-=(const float& num) {
+    inline Vector2& operator-=(const T& num) {
         x -= num;
         y -= num;
         return *this;
     }
-    inline Vector2& operator*=(const float& num) {
+    inline Vector2& operator*=(const T& num) {
         x *= num;
         y *= num;
         return *this;
     }
-    inline Vector2& operator/=(const float& num) {
+    inline Vector2& operator/=(const T& num) {
         x /= num;
         y /= num;
         return *this;
