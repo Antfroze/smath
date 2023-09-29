@@ -12,6 +12,7 @@ function smake.build()
   inputr('src')
   include('include')
 
+  generateCompileFlags()
   output('out/smath')
   build()
 

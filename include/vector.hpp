@@ -13,14 +13,15 @@ struct Vector2 {
     inline static Vector2 Zero() { return Vector2(); }
     inline static Vector2 One() { return Vector2(1, 1); }
 
-    inline const float LengthSquared() { return x * x + y * y; }
-    inline const float Length() { return sqrt(LengthSquared()); }
-    inline const float Distance(const Vector2& vector) {
+    inline float LengthSquared() const { return x * x + y * y; }
+    inline float Length() const { return sqrt(LengthSquared()); }
+    inline float Distance(const Vector2& vector) const {
         float xSeperation = x - vector.x;
         float ySeperation = y - vector.y;
         return sqrt(xSeperation * xSeperation + ySeperation * ySeperation);
     }
-    inline Vector2 Normalized() { return *this * (1.f / (Length())); }
+    inline Vector2 Normalized() const { return *this * (1.f / (Length())); }
+    inline bool IsEmpty() const { return x <= 0 || y <= 0; }
 
     // Operator overloads
     inline Vector2 operator+(const Vector2& vector) const {
@@ -106,4 +107,9 @@ struct Vector2 {
 
 using Vector2I = Vector2<int>;
 using Vector2F = Vector2<float>;
+using Vector2U = Vector2<unsigned>;
+
+using SizeI = Vector2I;
+using SizeF = Vector2F;
+using SizeU = Vector2U;
 }  // namespace smath
