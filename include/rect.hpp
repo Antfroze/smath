@@ -28,9 +28,10 @@ struct Rectangle {
         return Rectangle(origin.Floor(), size.Ceil());
     }
 
-    template <typename R>
-    operator Rectangle<R>() const {
-        return static_cast<R>(*this);
+    template <typename G>
+    operator Rectangle<G>() const {
+        return Rectangle<G>(static_cast<Vector2<G>>(origin),
+                            static_cast<Vector2<G>>(size));
     }
 
     inline Rectangle operator*(const T& num) const {

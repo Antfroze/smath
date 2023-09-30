@@ -96,9 +96,13 @@ struct Vector2 {
     inline bool operator==(const Vector2& vector) const {
         return x == vector.x && y == vector.y;
     }
-
     inline bool operator!=(const Vector2& vector) const {
         return x != vector.x || y != vector.y;
+    }
+
+    template <typename G>
+    operator Vector2<G>() const {
+        return Vector2<G>((G)x, (G)y);
     }
 
     friend std::ostream& operator<<(std::ostream& os, const Vector2& vector) {
