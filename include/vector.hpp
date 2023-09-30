@@ -22,6 +22,10 @@ struct Vector2 {
     }
     inline Vector2 Normalized() const { return *this * (1.f / (Length())); }
     inline bool IsEmpty() const { return x <= 0 || y <= 0; }
+    inline Vector2 Ceil() const { return Vector2(std::ceil(x), std::ceil(y)); }
+    inline Vector2 Floor() const {
+        return Vector2(std::floor(x), std::floor(y));
+    }
 
     // Operator overloads
     inline Vector2 operator+(const Vector2& vector) const {

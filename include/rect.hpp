@@ -25,8 +25,12 @@ struct Rectangle {
     }
 
     inline Rectangle RoundOut() const {
-        return Rectangle(Vector2<T>(std::floor(origin.x), std::floor(origin.y)),
-                         Vector2<T>(std::ceil(size.x), std::ceil(size.y)));
+        return Rectangle(origin.Floor(), size.Ceil());
+    }
+
+    template <typename R>
+    operator Rectangle<R>() const {
+        return static_cast<R>(*this);
     }
 
     inline Rectangle operator*(const T& num) const {
