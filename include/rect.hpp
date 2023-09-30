@@ -24,6 +24,11 @@ struct Rectangle {
                 (other.origin.y + other.size.y) <= (origin.y + size.y));
     }
 
+    inline Rectangle RoundOut() const {
+        return Rectangle(Vector2<T>(std::floor(origin.x), std::floor(origin.y)),
+                         Vector2<T>(std::ceil(size.x), std::ceil(size.y)));
+    }
+
     inline Rectangle operator*(const T& num) const {
         return Rectangle(origin * num, size * num);
     }
