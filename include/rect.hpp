@@ -13,6 +13,11 @@ struct Rectangle {
     inline const T GetArea() { return GetWidth() * GetHeight(); }
     inline const Vector2<T> Center() { return origin + size / 2; }
 
+    inline void Expand(const T& val) {
+        origin -= val;
+        size += val;
+    }
+
     inline bool Contains(const Vector2<T>& position) {
         return (position.x >= origin.x && position.x <= (origin.x + size.x) &&
                 position.y >= origin.y && position.y <= (origin.y + size.y));
